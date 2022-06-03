@@ -34,7 +34,13 @@ function generateTodoObject(id, task, timestamp, isCompleted) {
 } 
 
 document.addEventListener(RENDER_EVENT, function() {
-    console.log(todos);
+    const uncompletedTODOList = document.getElementById('todos');
+    uncompletedTODOList.innerHTML = '';
+
+    for (const todoItem of todos) {
+        const todoElement = makeTodo(todoItem);
+        uncompletedTODOList.append(todoElement);
+    }
 })
 
 function makeTodo(todoObject) {
