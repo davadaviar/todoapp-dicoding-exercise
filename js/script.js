@@ -88,3 +88,13 @@ function makeTodo(todoObject) {
 
     return container;
 }
+
+function addTaskToCompleted(todoId) {
+    const todoTarget = findTodo(todoId);
+
+    if (todoTarget == null) return;
+
+    todoTarget.isCompleted = true;
+
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
