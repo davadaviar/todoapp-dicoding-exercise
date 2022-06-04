@@ -98,3 +98,12 @@ function addTaskToCompleted(todoId) {
 
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
+
+function findTodo(todoId) {
+    for (const todoItem of todos) {
+        if (todoItem.id === todoId) {
+            return todoItem;
+        }
+    }
+    return null;
+}
