@@ -39,7 +39,9 @@ document.addEventListener(RENDER_EVENT, function() {
 
     for (const todoItem of todos) {
         const todoElement = makeTodo(todoItem);
-        uncompletedTODOList.append(todoElement);
+        if (!todoItem.isCompleted) {
+            uncompletedTODOList.append(todoElement);
+        }
     }
 })
 
@@ -107,3 +109,4 @@ function findTodo(todoId) {
     }
     return null;
 }
+
