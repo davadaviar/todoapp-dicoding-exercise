@@ -125,3 +125,12 @@ function removeTaskFromCompleted() {
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+function undoTaskFromCompleted() {
+    const todoTarget = findTodo(todoId);
+
+    if (todoTarget == null) return;
+
+    todoTarget.isCompleted = false;
+
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
