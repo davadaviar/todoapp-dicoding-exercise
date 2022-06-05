@@ -37,10 +37,15 @@ document.addEventListener(RENDER_EVENT, function() {
     const uncompletedTODOList = document.getElementById('todos');
     uncompletedTODOList.innerHTML = '';
 
+    const completeTODOList = document.getElementById('completed-todos');
+    completeTODOList.innerHTML = '';
+
     for (const todoItem of todos) {
         const todoElement = makeTodo(todoItem);
         if (!todoItem.isCompleted) {
             uncompletedTODOList.append(todoElement);
+        } else {
+            completeTODOList.append(todoElement);
         }
     }
 })
