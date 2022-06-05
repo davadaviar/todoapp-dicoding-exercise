@@ -115,7 +115,7 @@ function findTodo(todoId) {
     return null;
 }
 
-function removeTaskFromCompleted() {
+function removeTaskFromCompleted(todoId) {
     const todoTarget = findTodoIndex(todoId);
 
     if (todoTarget === -1) return;
@@ -125,7 +125,7 @@ function removeTaskFromCompleted() {
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
-function undoTaskFromCompleted() {
+function undoTaskFromCompleted(todoId) {
     const todoTarget = findTodo(todoId);
 
     if (todoTarget == null) return;
@@ -134,3 +134,4 @@ function undoTaskFromCompleted() {
 
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
+
