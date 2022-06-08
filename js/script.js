@@ -166,3 +166,7 @@ function isStorageExist() {
     }
     return true;
 }
+
+document.addEventListener(SAVED_EVENT, function() {
+    console.log(localStorage.getItem(STORAGE_KEY));
+})
