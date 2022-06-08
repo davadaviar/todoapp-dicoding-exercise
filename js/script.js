@@ -147,3 +147,11 @@ function findTodoIndex(todoId) {
     }
     return -1;
 }
+
+function saveData() {
+   if (isStorageExist()) {
+       const parsed = JSON.stringify(todos);
+       localStorage.setItem(STORAGE_KEY, parsed);
+       document.dispatchEvent(new Event(SAVED_EVENT));
+   }
+}
