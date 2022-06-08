@@ -148,10 +148,21 @@ function findTodoIndex(todoId) {
     return -1;
 }
 
+const SAVED_EVENT = 'saved-todo';
+const STORAGE_KEY = 'TODO_APPS';
+
 function saveData() {
    if (isStorageExist()) {
        const parsed = JSON.stringify(todos);
        localStorage.setItem(STORAGE_KEY, parsed);
        document.dispatchEvent(new Event(SAVED_EVENT));
    }
+}
+
+function isStorageExist() {
+    if (typeof(Storage) === undefined) {
+        alert('Browser anda tidak mendukung web storage !');
+        return false;
+    }
+    return true;
 }
